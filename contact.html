@@ -3,51 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Nishi Prabhat Hazarika</title>
+    <title>Contact - Nishi Prabhat Hazarika | DFT.codes</title>
+    <meta name="description" content="Contact Nishi Prabhat Hazarika, MSc Physics student at IIT Hyderabad, for research, collaboration, or academic queries.">
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="canonical" href="https://dft.codes/contact.html">
 </head>
 <body>
-    <header>
-        <h1>Contact Me</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section>
-            <h2>Get in Touch</h2>
-            <p>If you have any questions or would like to reach out, feel free to contact me using the form below or through my social media links.</p>
-            <form action="#" method="post">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="4" required></textarea>
-
-                <button type="submit">Send Message</button>
-            </form>
-        </section>
-        <section>
-            <h2>Connect with Me</h2>
-            <p>You can also find me on:</p>
-            <ul>
-                <li><a href="https://github.com/iamnishi347" target="_blank">GitHub</a></li>
-                <li><a href="https://twitter.com/iamnishi347" target="_blank">Twitter</a></li>
-                <li><a href="https://linkedin.com/in/nishi-prabhat-hazarika" target="_blank">LinkedIn</a></li>
-            </ul>
-        </section>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">Nishi P. Hazarika</a>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="projects.html" class="nav-link">Projects</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+                <a href="contact.html" class="nav-link active">Contact</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+    <main class="main-content">
+        <div class="container">
+            <header class="contact-header">
+                <h1>Get In Touch</h1>
+                <p>Let's discuss computational physics, research collaborations, or academic opportunities</p>
+            </header>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>Contact Information</h2>
+                    <div class="contact-item">
+                        <h3>Email</h3>
+                        <p><a href="mailto:your.email@iith.ac.in">your.email@iith.ac.in</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>Institution</h3>
+                        <p>Indian Institute of Technology Hyderabad<br>
+                        Department of Physics<br>
+                        Kandi, Sangareddy, Telangana 502285</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>Social & Professional</h3>
+                        <div class="social-links">
+                            <a href="https://github.com/iamnishi347" target="_blank">GitHub</a>
+                            <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+                            <a href="https://orcid.org/your-orcid" target="_blank">ORCID</a>
+                            <a href="https://scholar.google.com/your-profile" target="_blank">Google Scholar</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <h3>Research Interests</h3>
+                        <ul>
+                            <li>Density Functional Theory</li>
+                            <li>Topological Quantum Materials</li>
+                            <li>Computational Condensed Matter Physics</li>
+                            <li>Electronic Structure Calculations</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="contact-form-section">
+                    <h2>Send a Message</h2>
+                    <form class="contact-form" id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Select a topic</option>
+                                <option value="research">Research Collaboration</option>
+                                <option value="academic">Academic Discussion</option>
+                                <option value="project">Project Inquiry</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="6" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </main>
-    <footer>
-        <p>&copy; 2023 Nishi Prabhat Hazarika. All rights reserved.</p>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Nishi Prabhat Hazarika. All rights reserved.</p>
+            <div class="social-links">
+                <a href="mailto:your.email@iith.ac.in">Email</a>
+                <a href="https://github.com/iamnishi347">GitHub</a>
+                <a href="https://linkedin.com/in/yourprofile">LinkedIn</a>
+            </div>
+        </div>
     </footer>
     <script src="js/main.js"></script>
 </body>

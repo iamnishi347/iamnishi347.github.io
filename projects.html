@@ -3,42 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects - Nishi Prabhat Hazarika</title>
+    <title>Projects - Nishi Prabhat Hazarika | DFT.codes</title>
+    <meta name="description" content="Research projects by Nishi Prabhat Hazarika in computational condensed matter physics, DFT, and quantum materials.">
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="canonical" href="https://dft.codes/projects.html">
 </head>
 <body>
-    <header>
-        <h1>Nishi Prabhat Hazarika</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    
-    <main>
-        <h2>Recent Projects</h2>
-        <section>
-            <article>
-                <h3><a href="projects/project1.html">Project 1 Title</a></h3>
-                <p>Brief description of Project 1 related to computational condensed matter physics.</p>
-            </article>
-            <article>
-                <h3><a href="projects/project2.html">Project 2 Title</a></h3>
-                <p>Brief description of Project 2 related to computational condensed matter physics.</p>
-            </article>
-            <!-- Add more projects as needed -->
-        </section>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">Nishi P. Hazarika</a>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="projects.html" class="nav-link active">Projects</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+    <main class="main-content">
+        <div class="container">
+            <header class="projects-header">
+                <h1>Research Projects</h1>
+                <p>Computational studies in condensed matter physics and quantum materials</p>
+            </header>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/images/projects/dft-bandstructure.png" alt="DFT Band Structure" loading="lazy">
+                    </div>
+                    <div class="project-content">
+                        <h3>Electronic Band Structure Calculations using DFT</h3>
+                        <p>First-principles calculations of electronic properties of 2D materials using Quantum ESPRESSO and VASP. Investigation of band gaps, effective masses, and density of states.</p>
+                        <div class="project-tags">
+                            <span class="tag">DFT</span>
+                            <span class="tag">VASP</span>
+                            <span class="tag">Python</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="projects/project1.html" class="btn btn-sm">Details</a>
+                            <a href="https://github.com/iamnishi347/dft-project" class="btn btn-sm btn-secondary">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/images/projects/topological-insulators.png" alt="Topological Insulators" loading="lazy">
+                    </div>
+                    <div class="project-content">
+                        <h3>Topological Insulators: Berry Curvature Analysis</h3>
+                        <p>Computational study of topological phases in 2D and 3D materials. Calculation of Berry curvature, Chern numbers, and topological invariants using Wannier functions.</p>
+                        <div class="project-tags">
+                            <span class="tag">Topology</span>
+                            <span class="tag">Wannier90</span>
+                            <span class="tag">MATLAB</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="projects/project2.html" class="btn btn-sm">Details</a>
+                            <a href="https://github.com/iamnishi347/topology-project" class="btn btn-sm btn-secondary">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
-    
-    <footer>
-        <p>&copy; 2023 Nishi Prabhat Hazarika. All rights reserved.</p>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Nishi Prabhat Hazarika. All rights reserved.</p>
+            <div class="social-links">
+                <a href="mailto:your.email@iith.ac.in">Email</a>
+                <a href="https://github.com/iamnishi347">GitHub</a>
+                <a href="https://linkedin.com/in/yourprofile">LinkedIn</a>
+            </div>
+        </div>
     </footer>
-    
     <script src="js/main.js"></script>
 </body>
 </html>

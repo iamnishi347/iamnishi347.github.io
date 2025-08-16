@@ -3,36 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - Nishi Prabhat Hazarika</title>
+    <title>Blog - Nishi Prabhat Hazarika | DFT.codes</title>
+    <meta name="description" content="Blog by Nishi Prabhat Hazarika on DFT, quantum materials, and computational condensed matter physics.">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/blog.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="canonical" href="https://dft.codes/blog.html">
 </head>
 <body>
-    <header>
-        <h1>Nishi Prabhat Hazarika's Blog</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    
-    <main>
-        <h2>Recent Blog Posts</h2>
-        <ul>
-            <li><a href="blog/posts/sample-dft-post.html">Understanding Density Function Theory</a></li>
-            <li><a href="blog/posts/quantum-materials-intro.html">Introduction to Topological Quantum Materials</a></li>
-        </ul>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">Nishi P. Hazarika</a>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="projects.html" class="nav-link">Projects</a>
+                <a href="blog.html" class="nav-link active">Blog</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+    <main class="main-content">
+        <div class="container">
+            <header class="blog-header">
+                <h1>Blog</h1>
+                <p>Thoughts and insights on DFT, quantum materials, and computational physics</p>
+            </header>
+            <div class="blog-filters">
+                <button class="filter-btn active" data-category="all">All Posts</button>
+                <button class="filter-btn" data-category="dft">DFT</button>
+                <button class="filter-btn" data-category="quantum-materials">Quantum Materials</button>
+                <button class="filter-btn" data-category="tutorials">Tutorials</button>
+                <button class="filter-btn" data-category="research">Research</button>
+            </div>
+            <div class="blog-grid" id="blog-posts">
+                <!-- Blog posts will be loaded dynamically -->
+            </div>
+            <div class="pagination" id="pagination">
+                <!-- Pagination will be added dynamically if needed -->
+            </div>
+        </div>
     </main>
-
-    <footer>
-        <p>&copy; 2023 Nishi Prabhat Hazarika. All rights reserved.</p>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Nishi Prabhat Hazarika. All rights reserved.</p>
+            <div class="social-links">
+                <a href="mailto:your.email@iith.ac.in">Email</a>
+                <a href="https://github.com/iamnishi347">GitHub</a>
+                <a href="https://linkedin.com/in/yourprofile">LinkedIn</a>
+            </div>
+        </div>
     </footer>
-
     <script src="js/main.js"></script>
     <script src="js/blog.js"></script>
 </body>
