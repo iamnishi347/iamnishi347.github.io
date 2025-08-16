@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Density Functional Theory - DFT.codes</title>
+    <meta name="description" content="Exploring the fundamentals of DFT and its applications in predicting material properties from first principles">
+    <meta name="keywords" content="DFT, Density Functional Theory, Computational Physics, First Principles">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/blog.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="canonical" href="https://dft.codes/blog/posts/introduction-to-dft.html">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../../index.html">Nishi P. Hazarika</a>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="../../index.html" class="nav-link">Home</a>
+                <a href="../../about.html" class="nav-link">About</a>
+                <a href="../../projects.html" class="nav-link">Projects</a>
+                <a href="../../blog.html" class="nav-link active">Blog</a>
+                <a href="../../contact.html" class="nav-link">Contact</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="blog-post">
+        <header class="blog-post-header">
+            <h1>Introduction to Density Functional Theory in Computational Physics</h1>
+            <div class="meta">
+                <span>By Nishi Prabhat Hazarika</span>
+                <span>January 15, 2025</span>
+                <span>8 min read</span>
+            </div>
+            <div class="blog-post-tags">
+                <span class="blog-tag">DFT</span>
+                <span class="blog-tag">Theory</span>
+                <span class="blog-tag">Computational Physics</span>
+                <span class="blog-tag">First Principles</span>
+            </div>
+        </header>
+
+        <div class="blog-post-body">
+            <p>Density Functional Theory (DFT) stands as one of the most powerful and widely used computational methods in modern condensed matter physics and materials science. This quantum mechanical approach allows us to predict and understand the electronic properties of materials from first principles, without relying on empirical parameters.</p>
+
+            <h2>What is Density Functional Theory?</h2>
+            
+            <p>At its core, DFT is a quantum mechanical method that reformulates the many-body problem of interacting electrons in terms of the electron density rather than the many-body wavefunction. This fundamental shift, proposed by Hohenberg and Kohn in 1964, transforms an intractable problem involving 3N variables (for N electrons) into a more manageable one involving only 3 spatial variables.</p>
+
+            <blockquote>
+                "The ground state energy of a many-electron system is a unique functional of the electron density." - Hohenberg-Kohn Theorem
+            </blockquote>
+
+            <h2>The Mathematical Foundation</h2>
+
+            <p>The foundation of DFT rests on two fundamental theorems proved by Hohenberg and Kohn:</p>
+
+            <ol>
+                <li><strong>First Theorem:</strong> The ground state energy is a unique functional of the electron density ρ(r)</li>
+                <li><strong>Second Theorem:</strong> The ground state density minimizes the total energy functional</li>
+            </ol>
+
+            <p>The total energy functional can be written as:</p>
+
+            <div class="equation">
+                E[ρ] = T[ρ] + V<sub>ext</sub>[ρ] + V<sub>ee</sub>[ρ]
+            </div>
+
+            <p>Where T[ρ] is the kinetic energy, V<sub>ext</sub>[ρ] is the external potential energy, and V<sub>ee</sub>[ρ] is the electron-electron interaction energy.</p>
+
+            <h2>The Kohn-Sham Approach</h2>
+
+            <p>The practical implementation of DFT became possible through the Kohn-Sham formulation (1965), which introduces a system of non-interacting electrons that produces the same ground state density as the real interacting system. This leads to the famous Kohn-Sham equations:</p>
+
+            <div class="equation">
+                [-½∇² + v<sub>eff</sub>(r)]ψ<sub>i</sub>(r) = ε<sub>i</sub>ψ<sub>i</sub>(r)
+            </div>
+
+            <p>The effective potential v<sub>eff</sub>(r) includes:</p>
+            <ul>
+                <li>External potential from nuclei</li>
+                <li>Hartree potential from electron-electron repulsion</li>
+                <li>Exchange-correlation potential (the unknown term)</li>
+            </ul>
+
+            <h2>Exchange-Correlation Functionals</h2>
+
+            <p>The success of DFT calculations largely depends on the approximation used for the exchange-correlation functional E<sub>xc</sub>[ρ]. Several levels of approximation exist:</p>
+
+            <h3>Local Density Approximation (LDA)</h3>
+            <p>The simplest approximation assumes the exchange-correlation energy density at each point depends only on the local density:</p>
+            
+            <div class="equation">
+                E<sub>xc</sub><sup>LDA</sup>[ρ] = ∫ ρ(r)ε<sub>xc</sub>(ρ(r))dr
+            </div>
+
+            <h3>Generalized Gradient Approximation (GGA)</h3>
+            <p>GGA functionals include gradient corrections to account for density variations:</p>
+            
+            <div class="equation">
+                E<sub>xc</sub><sup>GGA</sup>[ρ] = ∫ ρ(r)ε<sub>xc</sub>(ρ(r), |∇ρ(r)|)dr
+            </div>
+
+            <h3>Hybrid Functionals</h3>
+            <p>These functionals mix exact Hartree-Fock exchange with DFT exchange-correlation, often providing improved accuracy for band gaps and excited states.</p>
+
+            <h2>Practical Applications in Materials Science</h2>
+
+            <p>DFT has revolutionized materials science by enabling accurate predictions of:</p>
+
+            <ul>
+                <li><strong>Electronic Structure:</strong> Band structures, density of states, and Fermi surfaces</li>
+                <li><strong>Structural Properties:</strong> Lattice parameters, bulk moduli, and phase stability</li>
+                <li><strong>Magnetic Properties:</strong> Magnetic moments and magnetic ordering</li>
+                <li><strong>Vibrational Properties:</strong> Phonon spectra and thermodynamic properties</li>
+                <li><strong>Surface and Interface Properties:</strong> Surface energies and electronic states</li>
+            </ul>
+
+            <h2>Computational Implementation</h2>
+
+            <p>Modern DFT calculations typically involve several key steps:</p>
+
+            <ol>
+                <li><strong>Basis Set Choice:</strong> Plane waves, localized orbitals, or augmented methods</li>
+                <li><strong>Pseudopotentials:</strong> Replacing core electrons with effective potentials</li>
+                <li><strong>Self-Consistent Field (SCF) Iterations:</strong> Solving Kohn-Sham equations iteratively</li>
+                <li><strong>Convergence Testing:</strong> Energy cutoffs, k-point sampling, and structural optimization</li>
+            </ol>
+
+            <h2>Popular DFT Codes</h2>
+
+            <p>Several well-established software packages implement DFT:</p>
+
+            <ul>
+                <li><strong>VASP:</strong> Vienna Ab-initio Simulation Package - plane wave basis</li>
+                <li><strong>Quantum ESPRESSO:</strong> Open-source plane wave package</li>
+                <li><strong>ABINIT:</strong> Versatile first-principles code</li>
+                <li><strong>GAUSSIAN:</strong> Popular molecular DFT package</li>
+                <li><strong>FHI-aims:</strong> All-electron full-potential code</li>
+            </ul>
+
+            <h2>Limitations and Challenges</h2>
+
+            <p>Despite its success, DFT has several well-known limitations:</p>
+
+            <ul>
+                <li><strong>Band Gap Problem:</strong> Systematic underestimation of semiconductor band gaps</li>
+                <li><strong>Van der Waals Interactions:</strong> Poor description of long-range correlations</li>
+                <li><strong>Strongly Correlated Systems:</strong> Challenges with transition metal oxides and f-electron systems</li>
+                <li><strong>Excited States:</strong> Ground state theory cannot directly access excited state properties</li>
+            </ul>
+
+            <h2>Recent Developments and Future Directions</h2>
+
+            <p>The field continues to evolve with exciting developments:</p>
+
+            <ul>
+                <li><strong>Machine Learning:</strong> ML-assisted functional development and property prediction</li>
+                <li><strong>Time-Dependent DFT:</strong> Accessing excited states and optical properties</li>
+                <li><strong>Meta-GGA Functionals:</strong> Including kinetic energy density for improved accuracy</li>
+                <li><strong>Many-Body Perturbation Theory:</strong> GW and BSE methods for accurate band gaps and excitations</li>
+            </ul>
+
+            <h2>Conclusion</h2>
+
+            <p>Density Functional Theory has transformed our ability to understand and predict material properties from fundamental quantum mechanical principles. While challenges remain, ongoing developments continue to expand its applicability and accuracy. For computational condensed matter physicists, mastering DFT is essential for modern materials research.</p>
+
+            <p>As we advance toward designing materials with tailored properties, DFT remains an indispensable tool in the computational physicist's arsenal, bridging the gap between quantum mechanics and practical materials design.</p>
+
+            <h2>Further Reading</h2>
+
+            <ul>
+                <li>Hohenberg, P. & Kohn, W. (1964). Inhomogeneous Electron Gas. Physical Review 136, B864.</li>
+                <li>Kohn, W. & Sham, L. J. (1965). Self-Consistent Equations Including Exchange and Correlation Effects. Physical Review 140, A1133.</li>
+                <li>Parr, R. G. & Yang, W. (1989). Density-Functional Theory of Atoms and Molecules. Oxford University Press.</li>
+                <li>Martin, R. M. (2004). Electronic Structure: Basic Theory and Practical Methods. Cambridge University Press.</li>
+            </ul>
+        </div>
+
+        <div class="author-info">
+            <h3>About the Author</h3>
+            <p>Nishi Prabhat Hazarika is an MSc Physics student at IIT Hyderabad specializing in computational condensed matter physics, with focus on density functional theory and topological quantum materials. His research involves using first-principles calculations to understand electronic and topological properties of materials.</p>
+        </div>
+
+        <div class="blog-navigation">
+            <div class="nav-prev">
+                <div class="nav-label">Previous Post</div>
+                <a href="vasp-tutorial-electronic-properties.html">VASP Tutorial: Electronic Properties</a>
+            </div>
+            <div class="nav-next">
+                <div class="nav-label">Next Post</div>
+                <a href="topological-insulators-computational.html">Topological Insulators: Computational Perspective</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Nishi Prabhat Hazarika. All rights reserved.</p>
+            <div class="social-links">
+                <a href="mailto:your.email@iith.ac.in">Email</a>
+                <a href="https://github.com/iamnishi347">GitHub</a>
+                <a href="https://linkedin.com/in/yourprofile">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+</body>
+</html>
