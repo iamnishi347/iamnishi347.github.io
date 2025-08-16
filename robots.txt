@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://iamnishi347.github.io/sitemap.xml
+Sitemap: https://dft.codes/sitemap.xml
