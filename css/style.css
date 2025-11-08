@@ -729,6 +729,23 @@ body {
     color: var(--accent-color);
     background: rgba(255, 255, 255, 0.1);
 }
+/* Distinct colors for contact page icons */
+.social-links a[title="GitHub"] {
+    color: #333;
+}
+.social-links a[title="LinkedIn"] {
+    color: #0a66c2;
+}
+.social-links a[title="ORCID"] {
+    color: #a6ce39;
+}
+.social-links a[title="Google Scholar"] {
+    color: #4285f4;
+}
+.social-links a:hover {
+    opacity: 0.8;
+}
+
 
 .text-center {
     text-align: center;
