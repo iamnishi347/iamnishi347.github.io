@@ -353,9 +353,9 @@ function generateBlogPost(post) {
         <div class="container">
             <p>&copy; 2025 Nishi Prabhat Hazarika. All rights reserved.</p>
             <div class="social-links">
-                <a href="mailto:your.email@iith.ac.in">Email</a>
+                <a href="mailto:niamnishi347@gmail.com">Email</a>
                 <a href="https://github.com/iamnishi347">GitHub</a>
-                <a href="https://linkedin.com/in/yourprofile">LinkedIn</a>
+                <a href="https://linkedin.com/in/nishi-prabhat-hazarika">LinkedIn</a>
             </div>
         </div>
     </footer>
