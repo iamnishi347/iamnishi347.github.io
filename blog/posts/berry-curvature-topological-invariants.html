@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berry Curvature and Topological Invariants - DFT.codes</title>
+    <meta name="description" content="Deep dive into Berry curvature, quantum geometry, and computational methods to calculate topological invariants using Wannier functions.">
+    <meta name="keywords" content="Berry Curvature, Topological Invariants, Quantum Geometry, Wannier Functions, Topology">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/blog.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="canonical" href="https://dft.codes/blog/posts/berry-curvature-topological-invariants.html">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="nav-logo">
+            <a href="../../index.html">Nishi P. Hazarika</a>
+        </div>
+        <div class="nav-menu" id="nav-menu">
+            <a href="../../index.html" class="nav-link">Home</a>
+            <a href="../../about.html" class="nav-link">About</a>
+            <a href="../../projects.html" class="nav-link">Projects</a>
+            <a href="../../blog.html" class="nav-link active">Blog</a>
+            <a href="../../contact.html" class="nav-link">Contact</a>
+        </div>
+        <div class="hamburger" id="hamburger">
+            <span></span><span></span><span></span>
+        </div>
+    </div>
+</nav>
+
+<main class="blog-post">
+    <header class="blog-post-header">
+        <h1>Berry Curvature and Topological Invariants</h1>
+        <div class="meta">
+            <span>By Nishi Prabhat Hazarika</span>
+            <span>December 28, 2024</span>
+            <span>10 min read</span>
+        </div>
+        <div class="blog-post-tags">
+            <span class="blog-tag">Berry Curvature</span>
+            <span class="blog-tag">Topology</span>
+            <span class="blog-tag">Quantum Geometry</span>
+            <span class="blog-tag">Wannier Functions</span>
+        </div>
+    </header>
+
+    <div class="blog-post-body">
+        <p>
+            Topology has emerged as a unifying principle in modern condensed matter physics, providing a robust framework
+            for classifying quantum phases of matter beyond symmetry breaking. At the heart of this description lies
+            <strong>Berry curvature</strong>, a geometric quantity that governs many observable topological phenomena.
+        </p>
+
+        <h2>Geometric Phase in Quantum Mechanics</h2>
+        <p>
+            When a quantum system undergoes an adiabatic evolution, its wavefunction can acquire a geometric phase
+            in addition to the usual dynamical phase. This geometric contribution, known as the Berry phase,
+            reflects the global structure of the wavefunction in parameter space.
+        </p>
+
+        <blockquote>
+            “Topology in quantum systems arises not from local properties, but from the global structure of wavefunctions.”
+        </blockquote>
+
+        <h2>Berry Connection and Berry Curvature</h2>
+        <p>
+            For a Bloch state <em>|u<sub>n</sub>(k)⟩</em>, the Berry connection is defined as:
+        </p>
+
+        <div class="equation">
+            A<sub>n</sub>(k) = i⟨u<sub>n</sub>(k)|∇<sub>k</sub>|u<sub>n</sub>(k)⟩
+        </div>
+
+        <p>
+            The Berry curvature is the curl of the Berry connection:
+        </p>
+
+        <div class="equation">
+            Ω<sub>n</sub>(k) = ∇<sub>k</sub> × A<sub>n</sub>(k)
+        </div>
+
+        <p>
+            Physically, Berry curvature acts like a magnetic field in momentum space, influencing electron dynamics
+            and transport properties.
+        </p>
+
+        <h2>Physical Consequences of Berry Curvature</h2>
+        <ul>
+            <li>Anomalous Hall effect</li>
+            <li>Quantum Hall and Chern insulators</li>
+            <li>Orbital magnetization</li>
+            <li>Nonlinear optical responses</li>
+        </ul>
+
+        <h2>Topological Invariants</h2>
+        <p>
+            Topological invariants are global quantities that remain unchanged under continuous deformations of the
+            system, provided the energy gap does not close.
+        </p>
+
+        <h3>Chern Number</h3>
+        <p>
+            The Chern number is defined as the integral of Berry curvature over the Brillouin zone:
+        </p>
+
+        <div class="equation">
+            C = \frac{1}{2π} ∫ Ω(k) d<sup>2</sup>k
+        </div>
+
+        <p>
+            A non-zero Chern number implies topologically protected edge states and quantized Hall conductivity.
+        </p>
+
+        <h3>Z<sub>2</sub> Invariants</h3>
+        <p>
+            Time-reversal symmetric topological insulators are characterized by Z<sub>2</sub> invariants,
+            distinguishing trivial and non-trivial insulating phases.
+        </p>
+
+        <h2>Quantum Geometry Beyond Curvature</h2>
+        <p>
+            Berry curvature is part of a broader quantum geometric tensor, whose real part defines the
+            quantum metric. This metric quantifies the distance between neighboring quantum states and
+            plays a crucial role in flat-band physics and superconductivity.
+        </p>
+
+        <h2>Wannier Functions and Topology</h2>
+        <p>
+            Maximally localized Wannier functions provide an efficient framework to compute Berry curvature
+            and topological invariants on dense k-point grids.
+        </p>
+
+        <p>
+            Using Wannier interpolation, one can:
+        </p>
+        <ul>
+            <li>Accurately evaluate Berry curvature</li>
+            <li>Compute Chern and Z<sub>2</sub> invariants</li>
+            <li>Study surface states and edge modes</li>
+        </ul>
+
+        <h2>Computational Workflow</h2>
+        <ol>
+            <li>Perform a converged DFT calculation</li>
+            <li>Construct Wannier functions from Bloch states</li>
+            <li>Interpolate the Hamiltonian in k-space</li>
+            <li>Evaluate Berry curvature and topological indices</li>
+        </ol>
+
+        <h2>Common Numerical Challenges</h2>
+        <ul>
+            <li>Gauge dependence of Berry connection</li>
+            <li>Band crossings and entangled bands</li>
+            <li>Insufficient k-point sampling</li>
+        </ul>
+
+        <h2>Applications in Modern Materials</h2>
+        <p>
+            Berry curvature and topological invariants play a central role in understanding:
+        </p>
+        <ul>
+            <li>Topological insulators and semimetals</li>
+            <li>Quantum anomalous Hall systems</li>
+            <li>Weyl and Dirac fermions</li>
+            <li>Spintronics and valleytronics</li>
+        </ul>
+
+        <h2>Conclusion</h2>
+        <p>
+            Berry curvature provides the geometric foundation of topological phenomena in condensed matter physics.
+            Combined with Wannier-based computational methods, it enables accurate and efficient characterization
+            of topological materials from first principles.
+        </p>
+
+        <p>
+            As interest in quantum materials continues to grow, mastering these concepts is essential for
+            researchers working at the intersection of topology, computation, and materials science.
+        </p>
+    </div>
+
+    <div class="author-info">
+        <h3>About the Author</h3>
+        <p>
+            Nishi Prabhat Hazarika is an MSc Physics student at IIT Hyderabad, focusing on computational
+            condensed matter physics, topological materials, and first-principles electronic structure methods.
+        </p>
+    </div>
+
+    <div class="blog-navigation">
+        <div class="nav-prev">
+            <div class="nav-label">Previous Post</div>
+            <a href="vasp-tutorial-electronic-properties.html">VASP Tutorial: Calculating Electronic Properties</a>
+        </div>
+        <div class="nav-next">
+            <div class="nav-label">Next Post</div>
+            <a href="topological-insulators-computational.html">Topological Insulators: A Computational Perspective</a>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2025 Nishi Prabhat Hazarika. All rights reserved.</p>
+        <div class="social-links">
+            <a href="mailto:iamnishi3@gmail.com">Email</a>
+            <a href="https://github.com/iamnishi347">GitHub</a>
+            <a href="https://linkedin.com">LinkedIn</a>
+        </div>
+    </div>
+</footer>
+
+<script src="../../js/main.js"></script>
+</body>
+</html>
