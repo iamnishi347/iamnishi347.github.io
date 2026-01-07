@@ -9,90 +9,80 @@
     "institution": "IIT Hyderabad"
   },
   "posts": [
-    {
-      "title": "Introduction to Density Functional Theory in Computational Physics",
-      "slug": "introduction-to-dft",
-      "excerpt": "Exploring the fundamentals of DFT and its applications in predicting material properties from first principles. This comprehensive guide covers the theoretical foundations and practical implementations.",
-      "date": "2025-01-15",
-      "category": "dft",
-      "tags": ["DFT", "Theory", "Computational Physics", "First Principles"],
-      "author": "Nishi Prabhat Hazarika",
-      "readTime": "8 min read",
-      "image": null,
-      "featured": true
-    },
-    {
-      "title": "Topological Insulators: A Computational Perspective",
-      "slug": "topological-insulators-computational",
-      "excerpt": "Understanding topological phases of matter through advanced computational methods and band structure analysis. Learn about Berry curvature, Chern numbers, and topological invariants.",
-      "date": "2025-01-10",
-      "category": "quantum-materials",
-      "tags": ["Topological Insulators", "Band Structure", "Quantum Materials", "Berry Curvature"],
-      "author": "Nishi Prabhat Hazarika",
-      "readTime": "12 min read",
-      "image": null,
-      "featured": true
-    },
-    {
-      "title": "VASP Tutorial: Calculating Electronic Properties",
-      "slug": "vasp-tutorial-electronic-properties",
-      "excerpt": "Step-by-step guide to using VASP for electronic structure calculations, including practical examples and best practices for computational efficiency.",
-      "date": "2025-01-05",
-      "category": "tutorials",
-      "tags": ["VASP", "Tutorial", "Electronic Structure", "DFT Calculations"],
-      "author": "Nishi Prabhat Hazarika",
-      "readTime": "15 min read",
-      "image": null,
-      "featured": false
-    },
-    {
-      "title": "Berry Curvature and Topological Invariants",
-      "slug": "berry-curvature-topological-invariants",
-      "excerpt": "Deep dive into the mathematical foundations of topology in condensed matter physics and computational methods to calculate topological invariants using Wannier functions.",
-      "date": "2024-12-28",
-      "category": "research",
-      "tags": ["Berry Curvature", "Topology", "Quantum Geometry", "Wannier Functions"],
-      "author": "Nishi Prabhat Hazarika",
-      "readTime": "10 min read",
-      "image": null,
-      "featured": false
-    },
-    {
-      "title": "Phonon Calculations Using Density Functional Perturbation Theory",
-      "slug": "phonon-calculations-dfpt",
-      "excerpt": "Understanding vibrational properties of materials through DFPT calculations and their implications for thermal transport and lattice dynamics.",
-      "date": "2024-12-20",
-      "category": "dft",
-      "tags": ["DFPT", "Phonons", "Thermal Properties", "Lattice Dynamics"],
-      "author": "Nishi Prabhat Hazarika",
-      "readTime": "11 min read",
-      "image": null,
-      "featured": false
-    },
-    {
-      "title": "Machine Learning in Materials Discovery",
-      "slug": "machine-learning-materials-discovery",
-      "excerpt": "How machine learning algorithms are revolutionizing computational materials science and accelerating materials discovery through high-throughput screening.",
-      "date": "2024-12-15",
-      "category": "research",
-      "tags": ["Machine Learning", "Materials Discovery", "AI", "High-throughput"],
-      "author": "Nishi Prabhat Hazarika",
-      "readTime": "9 min read",
-      "image": null,
-      "featured": true
-    }
-    {
-  "title": "Introduction to Density Functional Theory in Computational Physics",
-  "slug": "introduction-to-dft",
-  "excerpt": "Exploring the fundamentals of Density Functional Theory and its role in predicting electronic, structural, and magnetic properties of materials from first principles.",
-  "date": "2025-01-15",
-  "category": "dft",
-  "tags": [
-    "DFT",
-    "Theory",
-    "Computational Physics",
-    "First Principles"
-  ],
+  {
+    "title": "Introduction to Density Functional Theory in Computational Physics",
+    "slug": "introduction-to-dft",
+    "excerpt": "Exploring the fundamentals of DFT and its applications in predicting material properties from first principles.",
+    "date": "2025-01-15",
+    "category": "dft",
+    "tags": ["DFT", "Theory", "Computational Physics", "First Principles"],
+    "author": "Nishi Prabhat Hazarika",
+    "readTime": "8 min read",
+    "image": null,
+    "featured": true
+  },
+  {
+    "title": "Topological Insulators: A Computational Perspective",
+    "slug": "topological-insulators-computational",
+    "excerpt": "Understanding topological phases of matter through advanced computational methods and band structure analysis.",
+    "date": "2025-01-10",
+    "category": "quantum-materials",
+    "tags": ["Topological Insulators", "Band Structure", "Quantum Materials", "Berry Curvature"],
+    "author": "Nishi Prabhat Hazarika",
+    "readTime": "12 min read",
+    "image": null,
+    "featured": true
+  },
+  {
+    "title": "VASP Tutorial: Calculating Electronic Properties",
+    "slug": "vasp-tutorial-electronic-properties",
+    "excerpt": "Step-by-step guide to using VASP for electronic structure calculations.",
+    "date": "2025-01-05",
+    "category": "tutorials",
+    "tags": ["VASP", "Tutorial", "Electronic Structure", "DFT Calculations"],
+    "author": "Nishi Prabhat Hazarika",
+    "readTime": "15 min read",
+    "image": null,
+    "featured": false
+  },
+  {
+    "title": "Berry Curvature and Topological Invariants",
+    "slug": "berry-curvature-topological-invariants",
+    "excerpt": "Deep dive into the mathematical foundations of topology and computational evaluation of topological invariants.",
+    "date": "2024-12-28",
+    "category": "research",
+    "tags": ["Berry Curvature", "Topology", "Quantum Geometry", "Wannier Functions"],
+    "author": "Nishi Prabhat Hazarika",
+    "readTime": "10 min read",
+    "image": null,
+    "featured": false
+  },
+  {
+    "title": "Phonon Calculations Using Density Functional Perturbation Theory",
+    "slug": "phonon-calculations-dfpt",
+    "excerpt": "Understanding vibrational properties of materials through DFPT and lattice dynamics.",
+    "date": "2024-12-20",
+    "category": "dft",
+    "tags": ["DFPT", "Phonons", "Thermal Properties", "Lattice Dynamics"],
+    "author": "Nishi Prabhat Hazarika",
+    "readTime": "11 min read",
+    "image": null,
+    "featured": false
+  },
+  {
+    "title": "Machine Learning in Materials Discovery",
+    "slug": "machine-learning-materials-discovery",
+    "excerpt": "How machine learning is accelerating computational materials discovery.",
+    "date": "2024-12-15",
+    "category": "research",
+    "tags": ["Machine Learning", "Materials Discovery", "AI", "High-throughput"],
+    "author": "Nishi Prabhat Hazarika",
+    "readTime": "9 min read",
+    "image": null,
+    "featured": true
+  }
+],
+
   "author": "Nishi Prabhat Hazarika",
   "readTime": "8 min read",
   "image": null,
