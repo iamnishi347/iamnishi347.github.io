@@ -125,7 +125,15 @@ function renderPosts(posts, categories) {
             ${posts.map(p => createBlogPreviewCard(p, categories)).join("")}
         </div>
     `;
+
+    // 🔥 FIX: reveal blog cards (they were invisible)
+    const cards = container.querySelectorAll(".blog-preview-card");
+    cards.forEach(card => {
+        card.style.opacity = "1";
+        card.style.transform = "translateY(0)";
+    });
 }
+
 
 /* ==========================
    Blog preview card
