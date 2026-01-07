@@ -81,6 +81,24 @@
       "image": null,
       "featured": true
     }
+    {
+  "title": "Introduction to Density Functional Theory in Computational Physics",
+  "slug": "introduction-to-dft",
+  "excerpt": "Exploring the fundamentals of Density Functional Theory and its role in predicting electronic, structural, and magnetic properties of materials from first principles.",
+  "date": "2025-01-15",
+  "category": "dft",
+  "tags": [
+    "DFT",
+    "Theory",
+    "Computational Physics",
+    "First Principles"
+  ],
+  "author": "Nishi Prabhat Hazarika",
+  "readTime": "8 min read",
+  "image": null,
+  "featured": true
+}
+
   ],
   "categories": {
     "dft": {
