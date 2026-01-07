@@ -288,6 +288,7 @@ function generateBlogPost(post) {
                 <a href="../../projects.html" class="nav-link">Projects</a>
                 <a href="../../blog.html" class="nav-link active">Blog</a>
                 <a href="../../contact.html" class="nav-link">Contact</a>
+                <a href="../../privacy.html" class="nav-link">Privacy Policy</a>
             </div>
             <div class="hamburger" id="hamburger">
                 <span></span>
