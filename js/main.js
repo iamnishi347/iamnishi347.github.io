@@ -13,8 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
             navMenu.classList.toggle("active");
         });
 
-        const navLinks = navMenu.querySelectorAll(".nav-link");
-        navLinks.forEach(link => {
+        navMenu.querySelectorAll(".nav-link").forEach(link => {
             link.addEventListener("click", () => {
                 hamburger.classList.remove("active");
                 navMenu.classList.remove("active");
@@ -27,10 +26,10 @@ document.addEventListener("DOMContentLoaded", function () {
     ========================== */
     document.querySelectorAll('a[href^="#"]').forEach(link => {
         link.addEventListener("click", function (e) {
-            const targetId = this.getAttribute("href");
-            if (targetId === "#") return;
+            const id = this.getAttribute("href");
+            if (id === "#") return;
 
-            const target = document.querySelector(targetId);
+            const target = document.querySelector(id);
             if (target) {
                 e.preventDefault();
                 const offset = document.querySelector(".navbar")?.offsetHeight || 0;
@@ -45,19 +44,15 @@ document.addEventListener("DOMContentLoaded", function () {
     /* ==========================
        Active nav highlighting
     ========================== */
-    function updateActiveNav() {
-        const currentPath = window.location.pathname.replace("/", "");
-        document.querySelectorAll(".nav-link").forEach(link => {
-            link.classList.remove("active");
-            if (
-                link.getAttribute("href") === currentPath ||
-                (currentPath === "" && link.getAttribute("href") === "index.html")
-            ) {
-                link.classList.add("active");
-            }
-        });
-    }
-    updateActiveNav();
+    const currentPath = window.location.pathname.replace("/", "");
+    document.querySelectorAll(".nav-link").forEach(link => {
+        if (
+            link.getAttribute("href") === currentPath ||
+            (currentPath === "" && link.getAttribute("href") === "index.html")
+        ) {
+            link.classList.add("active");
+        }
+    });
 
     /* ==========================
        Load homepage blog posts
@@ -86,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             });
         },
-        { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+        { threshold: 0.1 }
     );
 
     document
@@ -104,24 +99,32 @@ document.addEventListener("DOMContentLoaded", function () {
 ========================== */
 async function loadRecentPosts() {
     try {
-        const response = await fetch("./blog/index.json");
-        const data = await response.json();
+        const res = await fetch("./blog/index.json");
+        const data = await res.json();
 
         const posts = data.posts
             .sort((a, b) => new Date(b.date) - new Date(a.date))
             .slice(0, 3);
 
-        const container = document.getElementById("recent-posts-container");
-        if (!container) return;
-
-        container.innerHTML = `
-            <div class="areas-grid">
-                ${posts.map(post => createBlogPreviewCard(post, data.categories)).join("")}
-            </div>
-        `;
+        renderPosts(posts, data.categories);
     } catch (err) {
-        console.error("Failed to load blog posts:", err);
+        console.warn("Using fallback blog posts");
+        renderPosts(getFallbackPosts(), fallbackCategories);
     }
+}
+
+/* ==========================
+   Render posts
+========================== */
+function renderPosts(posts, categories) {
+    const container = document.getElementById("recent-posts-container");
+    if (!container) return;
+
+    container.innerHTML = `
+        <div class="areas-grid">
+            ${posts.map(p => createBlogPreviewCard(p, categories)).join("")}
+        </div>
+    `;
 }
 
 /* ==========================
@@ -134,14 +137,14 @@ function createBlogPreviewCard(post, categories) {
         day: "numeric"
     });
 
-    const categoryName =
+    const category =
         categories?.[post.category]?.name || post.category;
 
     return `
         <div class="blog-preview-card">
             <div class="blog-preview-content">
                 <div class="blog-preview-meta">
-                    ${date} • ${categoryName}
+                    ${date} • ${category}
                 </div>
                 <h3 class="blog-preview-title">
                     <a href="blog/posts/${post.slug}.html">
@@ -157,35 +160,67 @@ function createBlogPreviewCard(post, categories) {
 }
 
 /* ==========================
-   Contact form handler
+   FALLBACK POSTS (CORRECT)
+========================== */
+function getFallbackPosts() {
+    return [
+        {
+            title: "Introduction to Density Functional Theory in Computational Physics",
+            slug: "introduction-to-dft",
+            excerpt: "Exploring the fundamentals of DFT and its applications in predicting material properties from first principles.",
+            date: "2025-01-15",
+            category: "dft"
+        },
+        {
+            title: "Topological Insulators: A Computational Perspective",
+            slug: "topological-insulators-computational",
+            excerpt: "Understanding topological phases of matter through advanced computational methods and band structure analysis.",
+            date: "2025-01-10",
+            category: "quantum-materials"
+        },
+        {
+            title: "VASP Tutorial: Calculating Electronic Properties",
+            slug: "vasp-tutorial-electronic-properties",
+            excerpt: "Step-by-step guide to using VASP for electronic structure calculations.",
+            date: "2025-01-05",
+            category: "tutorials"
+        }
+    ];
+}
+
+const fallbackCategories = {
+    "dft": { name: "Density Functional Theory" },
+    "quantum-materials": { name: "Quantum Materials" },
+    "tutorials": { name: "Tutorials" }
+};
+
+/* ==========================
+   Contact form
 ========================== */
 async function handleContactForm(e) {
     e.preventDefault();
-    const submitBtn = e.target.querySelector("button[type='submit']");
-    const originalText = submitBtn.textContent;
+    const btn = e.target.querySelector("button[type='submit']");
+    const text = btn.textContent;
 
-    submitBtn.textContent = "Sending...";
-    submitBtn.disabled = true;
+    btn.textContent = "Sending...";
+    btn.disabled = true;
 
-    try {
-        await new Promise(r => setTimeout(r, 1000));
-        showNotification("Message sent successfully!", "success");
-        e.target.reset();
-    } catch {
-        showNotification("Failed to send message.", "error");
-    } finally {
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-    }
+    await new Promise(r => setTimeout(r, 1000));
+
+    showNotification("Message sent successfully!", "success");
+    e.target.reset();
+
+    btn.textContent = text;
+    btn.disabled = false;
 }
 
 /* ==========================
-   Notifications
+   Notification
 ========================== */
-function showNotification(message, type = "info") {
-    const notification = document.createElement("div");
-    notification.textContent = message;
-    notification.style.cssText = `
+function showNotification(message, type) {
+    const n = document.createElement("div");
+    n.textContent = message;
+    n.style.cssText = `
         position: fixed;
         top: 20px;
         right: 20px;
@@ -197,53 +232,10 @@ function showNotification(message, type = "info") {
         transform: translateX(100%);
         transition: transform 0.3s ease;
     `;
-
-    document.body.appendChild(notification);
-    requestAnimationFrame(() => {
-        notification.style.transform = "translateX(0)";
-    });
-
+    document.body.appendChild(n);
+    requestAnimationFrame(() => n.style.transform = "translateX(0)");
     setTimeout(() => {
-        notification.style.transform = "translateX(100%)";
-        setTimeout(() => notification.remove(), 300);
+        n.style.transform = "translateX(100%)";
+        setTimeout(() => n.remove(), 300);
     }, 4000);
 }
-
-/* ==========================
-   Utilities
-========================== */
-function throttle(fn, limit) {
-    let waiting = false;
-    return function () {
-        if (!waiting) {
-            fn.apply(this, arguments);
-            waiting = true;
-            setTimeout(() => (waiting = false), limit);
-        }
-    };
-}
-
-/* ==========================
-   Navbar scroll effect
-========================== */
-window.addEventListener(
-    "scroll",
-    throttle(() => {
-        const navbar = document.querySelector(".navbar");
-        if (!navbar) return;
-        navbar.style.backgroundColor =
-            window.scrollY > 50
-                ? "rgba(255,255,255,0.98)"
-                : "rgba(255,255,255,0.95)";
-    }, 10)
-);
-
-/* ==========================
-   ESC closes mobile menu
-========================== */
-document.addEventListener("keydown", e => {
-    if (e.key === "Escape") {
-        document.getElementById("hamburger")?.classList.remove("active");
-        document.getElementById("nav-menu")?.classList.remove("active");
-    }
-});
