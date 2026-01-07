@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VASP Tutorial: Calculating Electronic Properties - DFT.codes</title>
+    <meta name="description" content="Step-by-step guide to using VASP for electronic structure calculations, including best practices and practical examples.">
+    <meta name="keywords" content="VASP, Electronic Structure, DFT Calculations, Band Structure, DOS">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/blog.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="canonical" href="https://dft.codes/blog/posts/vasp-tutorial-electronic-properties.html">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="nav-logo">
+            <a href="../../index.html">Nishi P. Hazarika</a>
+        </div>
+        <div class="nav-menu" id="nav-menu">
+            <a href="../../index.html" class="nav-link">Home</a>
+            <a href="../../about.html" class="nav-link">About</a>
+            <a href="../../projects.html" class="nav-link">Projects</a>
+            <a href="../../blog.html" class="nav-link active">Blog</a>
+            <a href="../../contact.html" class="nav-link">Contact</a>
+            <a href="../../Privacy.html" class="nav-link">Privacy Policy</a>
+        </div>
+        <div class="hamburger" id="hamburger">
+            <span></span><span></span><span></span>
+        </div>
+    </div>
+</nav>
+
+<main class="blog-post">
+    <header class="blog-post-header">
+        <h1>VASP Tutorial: Calculating Electronic Properties</h1>
+        <div class="meta">
+            <span>By Nishi Prabhat Hazarika</span>
+            <span>January 5, 2025</span>
+            <span>15 min read</span>
+        </div>
+        <div class="blog-post-tags">
+            <span class="blog-tag">VASP</span>
+            <span class="blog-tag">Tutorial</span>
+            <span class="blog-tag">Electronic Structure</span>
+            <span class="blog-tag">DFT Calculations</span>
+        </div>
+    </header>
+
+    <div class="blog-post-body">
+        <p>
+            The Vienna Ab initio Simulation Package (VASP) is one of the most widely used software packages for performing 
+            first-principles calculations based on Density Functional Theory (DFT). This tutorial provides a practical, 
+            step-by-step guide to calculating electronic properties such as band structure and density of states (DOS) 
+            using VASP.
+        </p>
+
+        <h2>Prerequisites</h2>
+        <p>
+            Before starting, you should have:
+        </p>
+        <ul>
+            <li>Basic understanding of Density Functional Theory</li>
+            <li>Access to a Linux-based system or HPC cluster with VASP installed</li>
+            <li>Familiarity with terminal commands and text editors</li>
+        </ul>
+
+        <h2>Overview of Electronic Structure Calculations</h2>
+        <p>
+            Electronic structure calculations aim to determine how electrons are distributed in a material. 
+            Key quantities obtained from VASP include:
+        </p>
+        <ul>
+            <li>Band structure</li>
+            <li>Total and projected density of states (DOS/PDOS)</li>
+            <li>Fermi energy</li>
+            <li>Charge density</li>
+        </ul>
+
+        <h2>Required Input Files</h2>
+        <p>
+            A standard VASP calculation requires four main input files:
+        </p>
+        <ul>
+            <li><strong>POSCAR</strong> – crystal structure</li>
+            <li><strong>POTCAR</strong> – pseudopotentials</li>
+            <li><strong>INCAR</strong> – calculation parameters</li>
+            <li><strong>KPOINTS</strong> – Brillouin-zone sampling</li>
+        </ul>
+
+        <h2>Step 1: Preparing the Structure (POSCAR)</h2>
+        <p>
+            The POSCAR file defines the lattice vectors and atomic positions. 
+            Always ensure that the structure is fully relaxed before performing electronic calculations.
+        </p>
+
+        <h2>Step 2: Choosing Pseudopotentials (POTCAR)</h2>
+        <p>
+            Use PAW pseudopotentials supplied with VASP. 
+            Consistency between pseudopotentials and exchange-correlation functionals is critical.
+        </p>
+
+        <h2>Step 3: INCAR Settings for Electronic Properties</h2>
+        <p>
+            Below is a minimal INCAR for a self-consistent field (SCF) calculation:
+        </p>
+
+<pre>
+SYSTEM = SCF Calculation
+ENCUT  = 520
+EDIFF  = 1E-6
+ISMEAR = 0
+SIGMA  = 0.05
+IBRION = -1
+NSW    = 0
+LREAL  = Auto
+</pre>
+
+        <p>
+            Key parameters:
+        </p>
+        <ul>
+            <li><strong>ENCUT</strong>: Plane-wave cutoff energy</li>
+            <li><strong>EDIFF</strong>: Electronic convergence criterion</li>
+            <li><strong>ISMEAR</strong>: Smearing method</li>
+        </ul>
+
+        <h2>Step 4: K-point Sampling</h2>
+        <p>
+            Dense k-point meshes are essential for accurate electronic properties. 
+            A typical KPOINTS file for SCF calculations:
+        </p>
+
+<pre>
+Automatic mesh
+0
+Gamma
+8 8 8
+0 0 0
+</pre>
+
+        <h2>Step 5: Self-Consistent Calculation</h2>
+        <p>
+            Run the SCF calculation first to obtain a converged charge density. 
+            Always check:
+        </p>
+        <ul>
+            <li>Energy convergence</li>
+            <li>Forces close to zero</li>
+            <li>No numerical instabilities</li>
+        </ul>
+
+        <h2>Step 6: Band Structure Calculation</h2>
+        <p>
+            Band structure calculations are non-self-consistent and use a fixed charge density from the SCF run.
+            Update the INCAR:
+        </p>
+
+<pre>
+ICHARG = 11
+LWAVE  = .FALSE.
+LCHARG = .FALSE.
+</pre>
+
+        <p>
+            The KPOINTS file should follow a high-symmetry path in the Brillouin zone.
+        </p>
+
+        <h2>Step 7: Density of States (DOS)</h2>
+        <p>
+            For DOS calculations, increase k-point density and enable DOS output:
+        </p>
+
+<pre>
+LORBIT = 11
+NEDOS  = 2000
+</pre>
+
+        <p>
+            The resulting DOSCAR and PROCAR files can be post-processed using tools such as 
+            p4vasp, sumo, or pymatgen.
+        </p>
+
+        <h2>Best Practices</h2>
+        <ul>
+            <li>Always perform convergence tests for ENCUT and k-points</li>
+            <li>Use consistent parameters across comparative studies</li>
+            <li>Document all input settings for reproducibility</li>
+            <li>Validate results with literature or experimental data</li>
+        </ul>
+
+        <h2>Common Pitfalls</h2>
+        <ul>
+            <li>Insufficient k-point sampling</li>
+            <li>Using unrelaxed structures</li>
+            <li>Incorrect smearing for insulators</li>
+            <li>Ignoring symmetry issues</li>
+        </ul>
+
+        <h2>Performance and Efficiency Tips</h2>
+        <p>
+            For large systems, computational efficiency becomes critical:
+        </p>
+        <ul>
+            <li>Use parallelization over k-points</li>
+            <li>Optimize NCORE and KPAR</li>
+            <li>Start from well-converged charge densities</li>
+        </ul>
+
+        <h2>Conclusion</h2>
+        <p>
+            VASP provides a powerful and reliable framework for electronic structure calculations. 
+            By carefully preparing inputs and following best practices, highly accurate electronic properties 
+            can be obtained for a wide range of materials.
+        </p>
+
+        <p>
+            This tutorial serves as a practical starting point. In future posts, we will explore 
+            advanced topics such as spin–orbit coupling, hybrid functionals, and topological properties using VASP.
+        </p>
+    </div>
+
+    <div class="author-info">
+        <h3>About the Author</h3>
+        <p>
+            Nishi Prabhat Hazarika is an MSc Physics student at IIT Hyderabad, specializing in computational 
+            condensed matter physics and first-principles electronic structure calculations.
+        </p>
+    </div>
+
+    <div class="blog-navigation">
+        <div class="nav-prev">
+            <div class="nav-label">Previous Post</div>
+            <a href="introduction-to-dft.html">Introduction to Density Functional Theory</a>
+        </div>
+        <div class="nav-next">
+            <div class="nav-label">Next Post</div>
+            <a href="topological-insulators-computational.html">Topological Insulators: Computational Perspective</a>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2025 Nishi Prabhat Hazarika. All rights reserved.</p>
+        <div class="social-links">
+            <a href="mailto:iamnishi3@gmail.com">Email</a>
+            <a href="https://github.com/iamnishi347">GitHub</a>
+            <a href="https://linkedin.com">LinkedIn</a>
+        </div>
+    </div>
+</footer>
+
+<script src="../../js/main.js"></script>
+</body>
+</html>
