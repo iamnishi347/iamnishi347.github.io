@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phonon Calculations Using Density Functional Perturbation Theory - DFT.codes</title>
+    <meta name="description" content="Understanding vibrational properties of materials through DFPT calculations and their role in lattice dynamics and thermal transport.">
+    <meta name="keywords" content="DFPT, Phonons, Lattice Dynamics, Thermal Properties, Density Functional Theory">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/blog.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="canonical" href="https://dft.codes/blog/posts/phonon-calculations-dfpt.html">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="nav-logo">
+            <a href="../../index.html">Nishi P. Hazarika</a>
+        </div>
+        <div class="nav-menu" id="nav-menu">
+            <a href="../../index.html" class="nav-link">Home</a>
+            <a href="../../about.html" class="nav-link">About</a>
+            <a href="../../projects.html" class="nav-link">Projects</a>
+            <a href="../../blog.html" class="nav-link active">Blog</a>
+            <a href="../../contact.html" class="nav-link">Contact</a>
+            <a href="../../Privacy.html" class="nav-link">Privacy Policy</a> 
+        </div>
+        <div class="hamburger" id="hamburger">
+            <span></span><span></span><span></span>
+        </div>
+    </div>
+</nav>
+
+<main class="blog-post">
+    <header class="blog-post-header">
+        <h1>Phonon Calculations Using Density Functional Perturbation Theory</h1>
+        <div class="meta">
+            <span>By Nishi Prabhat Hazarika</span>
+            <span>December 20, 2024</span>
+            <span>11 min read</span>
+        </div>
+        <div class="blog-post-tags">
+            <span class="blog-tag">DFPT</span>
+            <span class="blog-tag">Phonons</span>
+            <span class="blog-tag">Thermal Properties</span>
+            <span class="blog-tag">Lattice Dynamics</span>
+        </div>
+    </header>
+
+    <div class="blog-post-body">
+        <p>
+            Vibrational properties of solids play a central role in determining thermal conductivity,
+            phase stability, superconductivity, and electron–phonon interactions. 
+            Density Functional Perturbation Theory (DFPT) provides a powerful and efficient
+            first-principles framework to compute phonons and lattice dynamics directly from
+            Density Functional Theory.
+        </p>
+
+        <h2>What Are Phonons?</h2>
+        <p>
+            Phonons are quantized collective excitations of lattice vibrations in crystalline solids.
+            They describe how atoms oscillate around their equilibrium positions and govern
+            heat transport and vibrational entropy.
+        </p>
+
+        <p>
+            In reciprocal space, phonons are characterized by a wavevector <em>q</em> and a branch index,
+            giving rise to phonon dispersion relations across the Brillouin zone.
+        </p>
+
+        <h2>Lattice Dynamics from First Principles</h2>
+        <p>
+            The fundamental quantity in lattice dynamics is the <strong>dynamical matrix</strong>,
+            which is constructed from second derivatives of the total energy with respect to atomic displacements:
+        </p>
+
+        <div class="equation">
+            D<sub>αβ</sub>(q) = \frac{1}{\sqrt{M<sub>α</sub>M<sub>β</sub>}} \sum<sub>R</sub> Φ<sub>αβ</sub>(R) e^{iq·R}
+        </div>
+
+        <p>
+            Diagonalizing the dynamical matrix yields phonon frequencies and eigenmodes.
+        </p>
+
+        <h2>Density Functional Perturbation Theory</h2>
+        <p>
+            DFPT treats atomic displacements as small perturbations to the electronic ground state.
+            Instead of finite atomic displacements, it computes the linear response of the electronic
+            density to infinitesimal perturbations.
+        </p>
+
+        <p>
+            This approach is:
+        </p>
+        <ul>
+            <li>Fully self-consistent</li>
+            <li>Free from supercell size limitations</li>
+            <li>Computationally efficient for phonon dispersions</li>
+        </ul>
+
+        <h2>DFPT vs Finite Displacement Method</h2>
+        <ul>
+            <li><strong>DFPT:</strong> Linear-response, works in reciprocal space, ideal for phonon dispersions</li>
+            <li><strong>Finite Displacements:</strong> Real-space supercells, simpler but computationally expensive</li>
+        </ul>
+
+        <h2>Computational Workflow</h2>
+        <ol>
+            <li>Perform a fully converged ground-state DFT calculation</li>
+            <li>Select a q-point grid for phonon calculations</li>
+            <li>Compute dynamical matrices using DFPT</li>
+            <li>Interpolate phonon dispersions across the Brillouin zone</li>
+        </ol>
+
+        <h2>Key Input Parameters</h2>
+        <p>
+            Accurate phonon calculations require strict convergence with respect to:
+        </p>
+        <ul>
+            <li>Plane-wave cutoff energy</li>
+            <li>k-point sampling</li>
+            <li>Electronic convergence thresholds</li>
+            <li>q-point grid density</li>
+        </ul>
+
+        <h2>Phonon Dispersion and Density of States</h2>
+        <p>
+            Phonon dispersion relations reveal dynamic stability of materials.
+            Imaginary phonon frequencies indicate structural instabilities or phase transitions.
+        </p>
+
+        <p>
+            Phonon density of states (PhDOS) provides insights into vibrational entropy
+            and thermodynamic behavior.
+        </p>
+
+        <h2>Thermal Properties from Phonons</h2>
+        <p>
+            Within the harmonic approximation, phonons determine several thermal properties:
+        </p>
+        <ul>
+            <li>Heat capacity</li>
+            <li>Free energy</li>
+            <li>Entropy</li>
+            <li>Debye temperature</li>
+        </ul>
+
+        <p>
+            Beyond the harmonic approximation, phonon–phonon interactions govern
+            lattice thermal conductivity.
+        </p>
+
+        <h2>Electron–Phonon Coupling</h2>
+        <p>
+            DFPT can also be extended to compute electron–phonon coupling,
+            which is essential for understanding:
+        </p>
+        <ul>
+            <li>Conventional superconductivity</li>
+            <li>Electrical resistivity</li>
+            <li>Carrier mobility</li>
+        </ul>
+
+        <h2>Common Challenges</h2>
+        <ul>
+            <li>Spurious imaginary modes due to poor convergence</li>
+            <li>Long-range electrostatic effects in polar materials</li>
+            <li>Large computational cost for low-symmetry systems</li>
+        </ul>
+
+        <h2>Software Implementations</h2>
+        <p>
+            DFPT is implemented in several widely used first-principles codes:
+        </p>
+        <ul>
+            <li>Quantum ESPRESSO</li>
+            <li>ABINIT</li>
+            <li>VASP (linear-response and finite displacement)</li>
+            <li>CASTEP</li>
+        </ul>
+
+        <h2>Applications in Materials Science</h2>
+        <p>
+            Phonon calculations are crucial for studying:
+        </p>
+        <ul>
+            <li>Thermoelectric materials</li>
+            <li>Superconductors</li>
+            <li>Phase transitions</li>
+            <li>Mechanical and thermal stability</li>
+        </ul>
+
+        <h2>Conclusion</h2>
+        <p>
+            Density Functional Perturbation Theory provides a rigorous and efficient framework
+            for computing phonons and vibrational properties from first principles.
+            Its ability to accurately capture lattice dynamics makes it indispensable
+            for modern computational materials research.
+        </p>
+
+        <p>
+            A solid understanding of DFPT-based phonon calculations is essential for researchers
+            exploring thermal transport, structural stability, and electron–phonon interactions
+            in quantum materials.
+        </p>
+    </div>
+
+    <div class="author-info">
+        <h3>About the Author</h3>
+        <p>
+            Nishi Prabhat Hazarika is an MSc Physics student at IIT Hyderabad,
+            specializing in first-principles simulations, lattice dynamics,
+            and thermal properties of quantum materials.
+        </p>
+    </div>
+
+    <div class="blog-navigation">
+        <div class="nav-prev">
+            <div class="nav-label">Previous Post</div>
+            <a href="berry-curvature-topological-invariants.html">Berry Curvature and Topological Invariants</a>
+        </div>
+        <div class="nav-next">
+            <div class="nav-label">Next Post</div>
+            <a href="introduction-to-dft.html">Introduction to Density Functional Theory</a>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2025 Nishi Prabhat Hazarika. All rights reserved.</p>
+        <div class="social-links">
+            <a href="mailto:iamnishi3@gmail.com">Email</a>
+            <a href="https://github.com/iamnishi347">GitHub</a>
+            <a href="https://linkedin.com">LinkedIn</a>
+        </div>
+    </div>
+</footer>
+
+<script src="../../js/main.js"></script>
+</body>
+</html>
