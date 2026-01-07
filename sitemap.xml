@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://dft.codes/</loc>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://dft.codes/blog.html</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://dft.codes/Privacy.html</loc>
+    <priority>0.4</priority>
+  </url>
+
+  <url>
+    <loc>https://dft.codes/blog/posts/introduction-to-dft.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://dft.codes/blog/posts/topological-insulators-computational.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://dft.codes/blog/posts/vasp-tutorial-electronic-properties.html</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://dft.codes/blog/posts/berry-curvature-topological-invariants.html</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://dft.codes/blog/posts/phonon-calculations-dfpt.html</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://dft.codes/blog/posts/machine-learning-materials-discovery.html</loc>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>
