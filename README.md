@@ -3,7 +3,7 @@
 A modern, responsive portfolio website for **Nishi Prabhat Hazarika**, MSc Physics student at IIT Hyderabad, specializing in Density Functional Theory (DFT) and topological quantum materials.
 
 ## 🌐 Live Website
-[https://dft.codes](https://dft.codes)
+
 
 ## 📋 Features
 
